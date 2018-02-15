@@ -38,19 +38,19 @@ def get_new_img_size(initial_img, params):
                         " a scale at the same time.")
     elif scale == None:
         if new_height == None:
-            return round(new_width), round(
-                    new_width / initial_width * initial_height)
+            return new_width, round(
+                new_width / initial_width * initial_height)
         elif new_width == None:
             return round(new_height / initial_height * 
-                         initial_width), round(new_height)
+                         initial_width), new_height
         else:
-            return round(new_width), round(new_height)
+            return new_width, new_height
 
 
 def get_new_img_full_path(path_to_original_img,
                               new_size, 
                               path_to_new_img=None):
-    if path_to_new_img == None or path_to_new_img == "":
+    if path_to_new_img == None:
         path_to_new_img = os.path.dirname(path_to_original_img)
     width, height = new_size
     size_string = "_{}x{}.".format(width, height)
